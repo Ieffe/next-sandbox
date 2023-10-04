@@ -10,6 +10,7 @@ Sandboxing in NextJS with Tailwind for styling
 - Styling with tailwind postCSS (TBA)
 - Dynamic Routing for Single Data details and Editing Page
 
+current API Endpoint: https://jsonplaceholder.typicode.com
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
