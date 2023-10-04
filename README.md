@@ -1,3 +1,16 @@
+Sandboxing in NextJS with Tailwind for styling
+
+## List of learned Implementation in this sandbox repository 
+- Components implementation
+    - Props in Components that is reusable
+    - Using `use client` for client components that using react's Hook
+    - Using `notFound()` for 404 response
+    - Using `getStaticParams()` for Dynamic Routes
+- Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real)
+- Styling with tailwind postCSS (TBA)
+- Dynamic Routing for Single Data details and Editing Page
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
