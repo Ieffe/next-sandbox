@@ -9,7 +9,7 @@ const PostForm = (props) => {
         </label>
         <input
           className="bg-transparent text-white border-2 border-white rounded-lg w-full md:w-1/2 p-2
-          placeholder:italic placeholder:text-slate-500"
+          placeholder:italic placeholder:text-slate-500 focus:border-4"
           placeholder="Input Title"
           type="text"
           value={props.title}
@@ -22,7 +22,7 @@ const PostForm = (props) => {
         </label>
         <textarea
           className="bg-transparent text-white border-2 border-white rounded-lg w-full  p-2
-          placeholder:italic placeholder:text-slate-500"
+          placeholder:italic placeholder:text-slate-500 focus:border-4"
           placeholder="Input Some Content"
           name=""
           id=""

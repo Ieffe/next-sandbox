@@ -25,7 +25,19 @@ const Posts = async () => {
         {/* articles item container */}
         <div className="flex flex-row flex-wrap mt-16 self-start gap-0 justify-between">
           {/* single item */}
-          {datas.map((data) => (
+          {
+            Object.keys(datas).length === 0 ?  <h2>THERE IS NO DATA!! TRY TO FILL ONE!</h2> : 
+            datas.map((data) => (
+              // </div>
+              <PostWrapper 
+                key={data.id}
+                id={data.id}
+                title={data.title}
+                body={data.body}
+              />
+            )) 
+          }
+          {/* {datas.map((data) => (
             // <div key={data.id} className="basis-1/2 p-4">
             //   <Image
             //     src={"/placeholder.png"}
@@ -60,7 +72,7 @@ const Posts = async () => {
               title={data.title}
               body={data.body}
             />
-          ))}
+          ))} */}
         </div>
       </MainLayout>
     </>

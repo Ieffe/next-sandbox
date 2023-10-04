@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} relative`}>
+    <html lang="en" className='min-h-screen'>
+      <body className={`${inter.className} relative flex flex-col`}>
         <Navbar/>
         {children}
       </body>
