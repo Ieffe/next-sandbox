@@ -15,11 +15,14 @@ const PostWrapper = (props) => {
     await axios
       .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((resp) => console.log(resp))
+      .then(() => handleClose())
       .then(() => console.log("Post deleted succesfully!"))
-      .then(() => {
-        router.refresh();
-      })
+      .then(() => router.refresh())
       .catch((error) => console.log(error));
+  };
+
+  const handleClose = () => {
+    setShowDelete(!showDelete);
   };
 
   return (
@@ -47,8 +50,8 @@ const PostWrapper = (props) => {
           </button>
         </Link>
         <button
-          onClick={() => {setShowDelete(!showDelete)
-           console.log( "current boolean status in the PostWrapper "+ props.id +  ": " + showDelete)
+          onClick={() => {
+            setShowDelete(!showDelete);
           }}
           className="px-3 py-1 mt-4 font-bold border-white border-2 rounded hover:bg-white hover:text-black mr-3"
         >
@@ -56,7 +59,13 @@ const PostWrapper = (props) => {
         </button>
       </div>
 
-      <DeleteConfirm title={props.title} show={showDelete} id={props.id} />
+      <DeleteConfirm
+        title={props.title}
+        show={showDelete}
+        id={props.id}
+        close={handleClose}
+        delete={deletePost}
+      />
     </>
   );
 };
