@@ -8,7 +8,7 @@ export async function getStaticParams() {
   const datas = api.data;
 
   return datas.map((data) => ({
-    id: data.id,
+    id: data._id,
   }));
 }
 
@@ -47,7 +47,7 @@ const Page = async ({ params }) => {
           {data.title}
         </h1>
 
-        <p>{data.body}</p>
+        <p className="self-start">{data.body}</p>
       </MainLayout>
     );
   } catch (error) {

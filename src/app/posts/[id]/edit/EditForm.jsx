@@ -13,15 +13,14 @@ const EditForm = ({ params }) => {
 
   const editPost = async (e) => {
     e.preventDefault();
-    await axios
-      .patch(`https://jsonplaceholder.typicode.com/posts/${params.id}`, {
+    await axios.put(`https://jsonplaceholder.typicode.com/posts/${params._id}`, {
         title: title,
         body: body,
       })
       .then((resp) => console.log(resp))
       .then(() => console.log('data edited succesfully'))
       .then(() => {
-        router.push("/");
+        router.push(`/posts/${params._id}`);
       })
       .catch((error) => console.log(error));
   };

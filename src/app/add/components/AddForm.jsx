@@ -22,7 +22,7 @@ const AddForm = () => {
       })
       .then((resp) => console.log(resp))
       .then(() => {
-        router.push("/");
+        router.push("/posts");
       })
       .catch((error) => console.log(error));
   };

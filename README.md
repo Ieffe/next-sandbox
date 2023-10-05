@@ -1,6 +1,6 @@
 Sandboxing in NextJS with Tailwind for styling
 
-## List of learned Implementation in this sandbox repository 
+## List of learned Implementations in this sandbox repository 
 - Components implementation
     - Props in Components that is reusable
     - Using `use client` for client components that using react's Hook
@@ -8,7 +8,11 @@ Sandboxing in NextJS with Tailwind for styling
     - Using `getStaticParams()` for Dynamic Routes
 - Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, checking done by `console.log`)
 - Styling with tailwind postCSS (TBA)
-- Dynamic Routing for Single Data details and Editing Page
+- `App/`Routing Implementation
+    - Dynamic Routing for Single Data details and Editing Page
+    - Using `useRoute()` hooks for `refresh` and path Recognition
+
+**This current branch is using Tailwind Elements**
 
 current API Endpoint: https://jsonplaceholder.typicode.com
 

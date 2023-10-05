@@ -1,5 +1,7 @@
 import axios from "axios";
 import EditForm from "./EditForm";
+import { notFound } from "next/navigation";
+import MainLayout from "@/components/layouts/MainLayout";
 
 export async function generateMetadata({ params }) {
   try {
@@ -18,16 +20,20 @@ export async function generateMetadata({ params }) {
 }
 
 const Page = async ({ params }) => {
-  const api = await axios.get(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`
-  );
-  const data = api.data;
+  try {
+    const api = await axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${params.id}`
+    );
+    const data = api.data;
 
-  return(
-    <EditForm 
-        params={data}
-    />
-  )
+    return (
+      <MainLayout>
+        <EditForm params={data} />
+      </MainLayout>
+    );
+  } catch (error) {
+    notFound();
+  }
 };
 
 export default Page;
