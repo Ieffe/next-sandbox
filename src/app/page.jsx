@@ -11,12 +11,9 @@ export default function Home() {
         <div className="mr-auto flex flex-row items-center">
           <div className="mr-12">
             <div className="mb-6">
-              <h3 className="font-bold text-3xl">This is jumbotron</h3>
+              <h3 className="font-bold text-3xl">Welcome to my Sandbox</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-                libero doloremque, earum provident, iusto ex voluptate
-                consequuntur sit harum distinctio ipsam. Dolorem pariatur
-                placeat provident itaque consequatur repellat quae suscipit!
+                This is a Sandbox
               </p>
             </div>
             <Link href={"/posts"}>

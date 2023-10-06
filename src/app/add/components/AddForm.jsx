@@ -12,59 +12,71 @@ const ErrorMessage = ({ children }) => {
 const AddForm = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [titleErrorMsg, setTitleErrorMsg] = useState("");
+  const [bodyErrorMsg, setBodyErrorMsg] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     validateForm();
   }, [title, body]);
 
+  useEffect(() => {
+    if (isFormValid) {
+      // Ketika isFormValid berubah menjadi true, kirim permintaan HTTP
+      submitPost();
+    }
+  }, [isFormValid]);
+
   const validateForm = () => {
-    let errors = {};
+    let newErrors = {};
 
     if (!title) {
-      errors.title = "Title is required.";
+      newErrors.title = "Title is required.";
     }
 
     if (!body) {
-      errors.body = "Body is required.";
+      newErrors.body = "Body is required.";
     }
 
-    setErrors(errors);
-    setIsFormValid(Object.keys(errors).length === 0);
+    setErrors(newErrors);
+    setIsFormValid(Object.keys(newErrors).length === 0);
   };
 
-  const router = useRouter();
-
-  const submitPost = async (e) => {
-    e.preventDefault();
-    if (isFormValid) {
-      await axios
-        .post("https://jsonplaceholder.typicode.com/posts", {
-          title: title,
-          body: body,
-          userId: 1,
-        })
-        .then((resp) => console.log(resp))
-        .then(() => {
-          router.push("/");
-        })
-        .catch((error) => console.log(error));
+  const submitPost = async () => {
+    try {
+      const resp = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+        title: title,
+        body: body,
+        userId: 1,
+      });
+      console.log(resp);
+      router.push("/");
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <PostForm
-      action={submitPost}
+      action={(e) => {
+        e.preventDefault();
+        validateForm();
+        // Set pesan kesalahan hanya jika validasi gagal
+        if (!isFormValid) {
+          setTitleErrorMsg(errors.title || "");
+          setBodyErrorMsg(errors.body || "");
+        }
+      }}
       title={title}
       body={body}
       onChangeTitle={(e) => setTitle(e.target.value)}
       onChangeBody={(e) => setBody(e.target.value)}
-      titleError={errors.title}
-      titleErrorMsg={<ErrorMessage>{errors.title}</ErrorMessage>}
-      bodyError={errors.body}
-      bodyErrorMsg={<ErrorMessage>{errors.body}</ErrorMessage>}
+      titleError={isFormValid ? "" : titleErrorMsg}
+      titleErrorMsg={<ErrorMessage>{titleErrorMsg}</ErrorMessage>}
+      bodyError={isFormValid ? "" : bodyErrorMsg}
+      bodyErrorMsg={<ErrorMessage>{bodyErrorMsg}</ErrorMessage>}
     />
   );
 };

@@ -52,7 +52,7 @@ const Posts = async () => {
             datas.map((data) => (
               // </div>
               <PostWrapper 
-                key={data.id}
+                // key={data.id}
                 id={data.id}
                 title={data.title}
                 body={data.body}

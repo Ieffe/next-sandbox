@@ -8,6 +8,11 @@ import { useState } from "react";
 const Navbar = () => {
   const currentRoute = usePathname();
   const [toggle, setToggle] = useState(false);
+  const menu = [
+    { id: 1, name: "Home", url: "/" },
+    { id: 2, name: "Posts", url: "/posts" },
+    { id: 3, name: "Add New Post", url: "/add" },
+  ];
 
   return (
     <>
@@ -28,58 +33,21 @@ const Navbar = () => {
               </li>
             </div>
             <div className="hidden sm:block">
-              <li className="inline mr-4 text-xl">
-                <Link href={"/"}>
-                  <button
-                    className={
-                      currentRoute === "/"
-                        ? "font-bold bg-white text-black px-2 rounded-md"
-                        : "inline text-xl"
-                    }
-                  >
-                    Home
-                  </button>
-                </Link>
-              </li>
-              <li className="inline mr-4 text-xl">
-                <Link href={"/posts"}>
-                  <button
-                    className={
-                      currentRoute === "/posts"
-                        ? "font-bold bg-white text-black px-2 rounded-md"
-                        : "inline text-xl"
-                    }
-                  >
-                    Posts
-                  </button>
-                </Link>
-              </li>
-              <li className="inline mr-4 text-xl">
-                <Link href={"/about"}>
-                  <button
-                    className={
-                      currentRoute === "/about"
-                        ? "font-bold bg-white text-black px-2 rounded-md"
-                        : "inline text-xl"
-                    }
-                  >
-                    About
-                  </button>
-                </Link>
-              </li>
-              <li className="inline mr-4 text-xl">
-                <Link href={"/add"}>
-                  <button
-                    className={
-                      currentRoute === "/add"
-                        ? "font-bold bg-white text-black px-2 rounded-md"
-                        : "inline text-xl"
-                    }
-                  >
-                    Add New Post
-                  </button>
-                </Link>
-              </li>
+              {menu.map((m) => (
+                <li key={m.id} className="inline mr-4 text-xl">
+                  <Link href={m.url}>
+                    <button
+                      className={
+                        currentRoute === m.url
+                          ? "font-bold bg-white text-black px-2 rounded-md"
+                          : "inline text-xl"
+                      }
+                    >
+                      {m.name}
+                    </button>
+                  </Link>
+                </li>
+              ))}
             </div>
           </div>
 
@@ -103,50 +71,20 @@ const Navbar = () => {
       </nav>
       <nav className={`${toggle ? "sticky top-[3.25rem]" : "hidden"} `}>
         <ul className="flex flex-col  bg-black">
-          <li
-            className={`${
-              currentRoute === "/"
-                ? "font-bold bg-white text-black px-2"
-                : "inline text-xl"
-            } inline text-xl pl-4`}
-          >
-            <Link href={"/"}>
-              <button>Home</button>
-            </Link>
-          </li>
-          <li
-            className={`${
-              currentRoute === "/posts"
-                ? "font-bold bg-white text-black px-2"
-                : "inline text-xl"
-            } inline text-xl pl-4`}
-          >
-            <Link href={"/posts"}>
-              <button>Posts</button>
-            </Link>
-          </li>
-          <li
-            className={`${
-              currentRoute === "/about"
-                ? "font-bold bg-white text-black px-2"
-                : "inline text-xl"
-            } inline text-xl pl-4`}
-          >
-            <Link href={"/about"}>
-              <button>About</button>
-            </Link>
-          </li>
-          <li
-            className={`${
-              currentRoute === "/add"
-                ? "font-bold bg-white text-black px-2"
-                : "inline text-xl"
-            } inline text-xl pl-4`}
-          >
-            <Link href={"/add"}>
-              <button>Add New Post</button>
-            </Link>
-          </li>
+          {menu.map((m) => (
+            <li
+              className={`${
+                currentRoute === m.url
+                  ? "font-bold bg-white text-black px-2"
+                  : "inline text-xl"
+              } inline text-xl pl-4`}
+              key={m.id}
+            >
+              <Link href={m.url}>
+                <button>{m.name}</button>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>
