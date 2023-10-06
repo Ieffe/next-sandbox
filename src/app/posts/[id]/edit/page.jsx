@@ -1,5 +1,6 @@
 import axios from "axios";
 import EditForm from "./EditForm";
+import MainLayout from "@/components/layouts/MainLayout";
 
 export async function generateMetadata({ params }) {
   try {
@@ -23,11 +24,12 @@ const Page = async ({ params }) => {
   );
   const data = api.data;
 
-  return(
-    <EditForm 
-        params={data}
-    />
-  )
+  return (
+    <MainLayout>
+      <h1 className="text-3xl font-bold">Edit this post</h1>
+      <EditForm params={data} />
+    </MainLayout>
+  );
 };
 
 export default Page;
