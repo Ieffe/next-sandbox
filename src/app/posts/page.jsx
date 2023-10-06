@@ -4,6 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 import PostWrapper from "./components/PostWrapper";
+import DeleteConfirm from "./components/DeleteModal";
 
 export const metadata = {
   title: "The New Page - Our Articles!",
@@ -13,7 +14,28 @@ export const metadata = {
 
 const Posts = async () => {
   const api = await axios.get("https://jsonplaceholder.typicode.com/posts");
-  const datas = api.data;
+  const datas = api.data; 
+
+  const deletePost = async (id) => {
+    await axios
+      .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((resp) => console.log(resp))
+      .then(() => handleClose())
+      .then(() => console.log("Post deleted succesfully!"))
+      .then(() => router.refresh())
+      .catch((error) => console.log(error));
+  };
+
+  const searchDeleteId = (id) => {
+    const search = datas.findIndex((data) => data.id==id)
+    return{ 
+      id: search.id,
+      title: search.title,
+      show: true
+    }
+  }
+
+
 
   return (
     <>
@@ -37,42 +59,7 @@ const Posts = async () => {
               />
             )) 
           }
-          {/* {datas.map((data) => (
-            // <div key={data.id} className="basis-1/2 p-4">
-            //   <Image
-            //     src={"/placeholder.png"}
-            //     width={300}
-            //     height={300}
-            //     className="fill-white bg-white rounded-md object-cover w-full h-48"
-            //     alt="name"
-            //   />
-            //   <h1 className="line-clamp-1 font-bold text-xl mt-3 capitalize">{data.title}</h1>
-            //   <p className="line-clamp-2">
-            //     {data.body}
-            //   </p>
-            //   <Link href={`/posts/${data.id}`} >
-            //     <button className="px-3 py-1 mt-4 font-bold border-white border-2 rounded hover:bg-white hover:text-black mr-3">
-            //       Read Now!
-            //     </button>
-            //   </Link>
-            //   <Link href={`/posts/${data.id}/edit`} >
-            //     <button className="px-3 py-1 mt-4 font-bold border-white border-2 rounded hover:bg-white hover:text-black mr-3">
-            //       Edit this Post!
-            //     </button>
-            //   </Link>
-            //   <Link href={`/posts/${data.id}/edit`} >
-            //     <button className="px-3 py-1 mt-4 font-bold border-white border-2 rounded hover:bg-white hover:text-black mr-3">
-            //       Delete this Post!
-            //     </button>
-            //   </Link>
-            // </div>
-            <PostWrapper 
-              key={data.id}
-              id={data.id}
-              title={data.title}
-              body={data.body}
-            />
-          ))} */}
+          
         </div>
       </MainLayout>
     </>

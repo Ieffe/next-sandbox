@@ -6,9 +6,13 @@ Sandboxing in NextJS with Tailwind for styling
     - Using `use client` for client components that using react's Hook
     - Using `notFound()` for 404 response
     - Using `getStaticParams()` for Dynamic Routes
+    - Using `useEffect` for catching state every render for Custom build delete confirmation modal in `/posts`
 - Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, checking done by `console.log`)
 - Styling with tailwind postCSS (TBA)
 - Dynamic Routing for Single Data details and Editing Page
+
+Next: 
+- Learning validation with `react-hook-form`
 
 current API Endpoint: https://jsonplaceholder.typicode.com
 

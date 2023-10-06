@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import DeleteConfirm from "./DeletePopUp";
+import DeleteConfirm from "./DeleteModal";
 import { useEffect, useState } from "react";
 
 const PostWrapper = (props) => {
   const router = useRouter();
   const [showDelete, setShowDelete] = useState(false);
+
+  
 
   const deletePost = async (id) => {
     await axios
@@ -24,6 +26,8 @@ const PostWrapper = (props) => {
   const handleClose = () => {
     setShowDelete(!showDelete);
   };
+
+  
 
   return (
     <>
