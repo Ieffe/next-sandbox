@@ -26,7 +26,7 @@ const Page = async ({ params }) => {
 
   return (
     <MainLayout>
-      <h1 className="text-3xl font-bold">Edit this post</h1>
+      <h1 className="text-3xl font-bold mb-4">Edit this post</h1>
       <EditForm params={data} />
     </MainLayout>
   );
