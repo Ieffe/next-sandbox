@@ -17,7 +17,7 @@ Sandboxing in NextJS with Tailwind for styling
 - Applying authorization
 - redux (?)
 
-current API Endpoint: https://jsonplaceholder.typicode.com
+**Current API Endpoint**: https://jsonplaceholder.typicode.com
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
