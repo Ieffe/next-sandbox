@@ -8,11 +8,14 @@ Sandboxing in NextJS with Tailwind for styling
     - Using `getStaticParams()` for Dynamic Routes
     - Using `useEffect` for catching state every render for Custom build delete confirmation modal in `/posts`
 - Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, checking done by `console.log`)
-- Styling with tailwind postCSS (TBA)
-- Dynamic Routing for Single Data details and Editing Page
 
-Next: 
-- Learning validation with `react-hook-form`
+- Dynamic Routing for Single Data details and Editing Page
+- Validation with useEffect, and form Validation with `react-hook-forms`
+
+## Next Topic: ##
+- Styling with tailwind postCSS (TBA)
+- Applying authorization
+- redux (?)
 
 current API Endpoint: https://jsonplaceholder.typicode.com
 
