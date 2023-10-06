@@ -1,6 +1,5 @@
 const PostForm = (props) => {
 
-
   return (
     <form className="w-full" onSubmit={props.action}>
       <div className="w-full">
@@ -15,6 +14,7 @@ const PostForm = (props) => {
           value={props.title}
           onChange={props.onChangeTitle}
         />
+        {props.titleError && props.titleErrorMsg}
       </div>
       <div className="w-full mt-5">
         <label className="block mb-2" htmlFor="">
@@ -31,6 +31,7 @@ const PostForm = (props) => {
           value={props.body}
           onChange={props.onChangeBody}
         ></textarea>
+        {props.bodyError && props.bodyErrorMsg}
       </div>
       <button
         className="hover:border-2 hover:bg-transparent hover:text-white bg-white text-black px-4 py-2 rounded-lg mt-5"
@@ -42,4 +43,4 @@ const PostForm = (props) => {
   );
 };
 
-export default PostForm
+export default PostForm;
