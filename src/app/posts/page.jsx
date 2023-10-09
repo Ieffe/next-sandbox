@@ -16,24 +16,7 @@ const Posts = async () => {
   const api = await axios.get("https://jsonplaceholder.typicode.com/posts");
   const datas = api.data; 
 
-  const deletePost = async (id) => {
-    await axios
-      .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then((resp) => console.log(resp))
-      .then(() => handleClose())
-      .then(() => console.log("Post deleted succesfully!"))
-      .then(() => router.refresh())
-      .catch((error) => console.log(error));
-  };
-
-  const searchDeleteId = (id) => {
-    const search = datas.findIndex((data) => data.id==id)
-    return{ 
-      id: search.id,
-      title: search.title,
-      show: true
-    }
-  }
+ 
 
 
 
@@ -52,7 +35,7 @@ const Posts = async () => {
             datas.map((data) => (
               // </div>
               <PostWrapper 
-                // key={data.id}
+                key={data.id}
                 id={data.id}
                 title={data.title}
                 body={data.body}

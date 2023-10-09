@@ -24,7 +24,6 @@ const AddForm = () => {
 
   useEffect(() => {
     if (isFormValid) {
-      // Ketika isFormValid berubah menjadi true, kirim permintaan HTTP
       submitPost();
     }
   }, [isFormValid]);
@@ -46,11 +45,14 @@ const AddForm = () => {
 
   const submitPost = async () => {
     try {
-      const resp = await axios.post("https://jsonplaceholder.typicode.com/posts", {
-        title: title,
-        body: body,
-        userId: 1,
-      });
+      const resp = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          title: title,
+          body: body,
+          userId: 1,
+        }
+      );
       console.log(resp);
       router.push("/");
     } catch (error) {
@@ -63,7 +65,7 @@ const AddForm = () => {
       action={(e) => {
         e.preventDefault();
         validateForm();
-        // Set pesan kesalahan hanya jika validasi gagal
+
         if (!isFormValid) {
           setTitleErrorMsg(errors.title || "");
           setBodyErrorMsg(errors.body || "");

@@ -13,13 +13,14 @@ const DeleteConfirm = (props) => {
   
 
   return (
-    <div
+    <div onClick={props.close} //main container (includes the transparent background)
       className={`w-full h-full justify-center justify-items-center fixed z-10 bg-black/50 top-0 left-0 
       ${!!show ? "flex flex-col" : "hidden"}
     `}
     >
       <div
         className="bg-black border-2 border-white rounded-lg p-6 w-3/4 m-auto self-center"
+        onClick={(e) => {e.stopPropagation()}}
       >
         <h1 className="text-2xl font-bold">Confirm Deletion</h1>
         <p className="mt-5">Are you sure to delete this Post?</p>
