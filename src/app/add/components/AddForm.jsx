@@ -54,7 +54,7 @@ const AddForm = () => {
         }
       );
       console.log(resp);
-      router.push('posts?form=submitted');
+      router.push('/posts?form=submitted');
     } catch (error) {
       console.log(error);
     }

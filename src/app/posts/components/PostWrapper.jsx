@@ -11,23 +11,22 @@ const PostWrapper = (props) => {
   const router = useRouter();
   const [showDelete, setShowDelete] = useState(false);
 
-  
-
   const deletePost = async (id) => {
-    await axios
-      .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then((resp) => console.log(resp))
-      .then(() => handleClose())
-      .then(() => console.log("Post deleted succesfully!"))
-      .then(() => router.refresh())
-      .catch((error) => console.log(error));
+    try {
+      await axios
+        .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then((resp) => console.log(resp));
+      handleClose();
+      console.log("Post deleted succesfully!");
+      router.push('/posts?form=deleted');;
+    } catch (error) {
+      (error) => console.log(error);
+    }
   };
 
   const handleClose = () => {
     setShowDelete(!showDelete);
   };
-
-  
 
   return (
     <>

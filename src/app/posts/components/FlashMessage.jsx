@@ -6,21 +6,29 @@ import { useEffect, useState } from "react";
 const FlashMessage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-
   const [msg, setMsg] = useState("");
   const [show, setShow] = useState(false);
+  const [flashClass, setFlashClass] = useState("");
 
   useEffect(() => {
-    if (searchParams.get("form") === "submitted") {
+    if (searchParams.get("form") === "deleted") {
+      setShow(true);
+      setMsg("Post Deleted");
+      setFlashClass(styles.flashRed);
+      router.replace("/posts");
+    } else if (searchParams.get("form") === "submitted") {
       setShow(true);
       setMsg("Post Submitted!");
+      setFlashClass(styles.flashGreen);
       router.replace("/posts", undefined, { shallow: true });
-      setTimeout(() => setShow(false), 2000)
     }
-  }, [router.query]);
+
+    setTimeout(() => setShow(false), 2000);
+  }, [searchParams]);
+
 
   return (
-    <div className={`${styles.flashGreen} ${show ? "block" : "hidden"}`}>
+    <div className={`${flashClass} ${show ? "block" : "hidden"}`}>
       <h1>{msg}</h1>
     </div>
   );
