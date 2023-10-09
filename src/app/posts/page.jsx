@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import PostWrapper from "./components/PostWrapper";
 import DeleteConfirm from "./components/DeleteModal";
+import FlashMessage from "./components/FlashMessage";
 
 export const metadata = {
   title: "The New Page - Our Articles!",
@@ -24,6 +25,7 @@ const Posts = async () => {
     <>
       <MainLayout>
         {/* title container */}
+        <FlashMessage />
         <div className="self-start font-bold text-3xl">
           <h1>Our best articles to date!</h1>
         </div>
