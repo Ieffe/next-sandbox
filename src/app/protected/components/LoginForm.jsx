@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 // import {setCookie, getCookie} from 'cookies-next'
 import Cookies from 'js-cookie';
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const route = useRouter()

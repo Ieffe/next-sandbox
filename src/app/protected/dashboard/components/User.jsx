@@ -1,16 +1,20 @@
-'use client'
+"use client";
 
 const { useRouter } = require("next/navigation");
 import axios from "axios";
 import { getCookie } from "cookies-next";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 const User = () => {
-    const router = useRouter()
-    const token = getCookie('token')
-    console.log(token)
-    if(!token){
-        router.push('/protected')
+  const token = Cookies.get("token");
+  console.log(token)
+  useEffect(() => {
+    if (!token) {
+      router.push("/protected");
     }
+  });
+
   return (
     <>
       <h1>Token: {token} </h1>
