@@ -12,6 +12,7 @@ const Navbar = () => {
     { id: 1, name: "Home", url: "/" },
     { id: 2, name: "Posts", url: "/posts" },
     { id: 3, name: "Add New Post", url: "/add" },
+    { id: 4, name: "Protected Demo", url: "/protected" },
   ];
 
   return (

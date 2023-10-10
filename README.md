@@ -7,16 +7,16 @@ Sandboxing in NextJS with Tailwind for styling
     - Using `notFound()` for 404 response
     - Using `getStaticParams()` for Dynamic Routes and `generateMetadata` for getting dynamic Metadata
     - Using `useEffect` for catching state every render for Custom build delete confirmation modal in `/posts`
-- Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, checking done by `console.log`)
-
+- Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, but it's still confirmed by checking done by `console.log`)
 - Dynamic Routing for Single Data details and Editing Page
-- Validation with useEffect, and form Validation with `react-hook-forms`
+- Validation with useEffect, and form Validation with `react-hook-forms` and good ol' `useEffect()`
+- Middleware implementation in `src/middleware.js` and Basic Login (provided in console.log) and setting the token in client component, but still figuring out how to handle to access that aforementioned token by getting it
 
 ## Next Topic: ##
 - Catch all Routes `[...filename]`
-- Styling with tailwind postCSS (TBA)
-- Authorization
+- Authentication (on Progress)
 - Redux
+- Pagination
 
 **Current API Endpoint**: https://jsonplaceholder.typicode.com 
 
