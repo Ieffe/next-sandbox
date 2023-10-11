@@ -24,7 +24,8 @@ const LoginForm = () => {
         password: password,
       });
       setCookie("token", resp.data);
-      route.push("/protected/dashboard");
+      route.replace("/protected/dashboard");
+      route.refresh()
     } catch (error) {
       const msg = error.response.data.message;
       console.log(msg);

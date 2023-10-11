@@ -1,7 +1,4 @@
-import { redirect } from "next/navigation";
-import LogoutButton from "./components/LogoutButton";
 import { cookies } from "next/headers";
-import Image from "next/image";
 import DashboardNav from "./components/DashboardNav";
 
 const Page = () => {
