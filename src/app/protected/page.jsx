@@ -2,9 +2,9 @@ import Link from "next/link";
 import LoginForm from "./components/LoginForm";
 import styles from "./form.module.css";
 import { cookies } from 'next/headers'
+import { redirect } from "next/navigation";
 
 const Page = () => {
-    
   return (
     <>
       <div className="mb-5">

@@ -4,16 +4,15 @@ import { useEffect, useState } from "react";
 import styles from "../form.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-// import {setCookie, getCookie} from 'cookies-next'
-import Cookies from 'js-cookie';
+import {setCookie, getCookie} from 'cookies-next'
+// import Cookies from 'js-cookie';
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const route = useRouter()
 
   const handleLogin = async (e) => {
-    
     e.preventDefault();
     try {
 
@@ -21,10 +20,10 @@ const LoginForm = (props) => {
         username: user,
         password: password,
       });
-      
-      Cookies.set('token', resp.data.token)
-      const token = Cookies.get('token')
-      console.log('login success, your current token is: '+ token)
+      console.log(resp)
+      setCookie('token', resp.data)
+      const token = getCookie('token')
+      console.log(token)
       route.push('/protected/dashboard')
 
     } catch (error) {
