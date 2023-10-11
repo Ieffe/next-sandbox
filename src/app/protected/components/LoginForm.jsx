@@ -1,41 +1,42 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "../form.module.css";
+import styles from "./form.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import {setCookie, getCookie} from 'cookies-next'
+import { setCookie, getCookie } from "cookies-next";
 // import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const route = useRouter()
+  const [errMsg, setErrMsg] = useState("");
+  const route = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-
-     const resp = await axios.post(`https://dummyjson.com/auth/login`, {
+      {
+        errMsg && <p>{errMsg}</p>;
+      }
+      const resp = await axios.post(`https://dummyjson.com/auth/login`, {
         username: user,
         password: password,
       });
-      console.log(resp)
-      setCookie('token', resp.data)
-      const token = getCookie('token')
-      console.log(token)
-      route.push('/protected/dashboard')
-
+      setCookie("token", resp.data);
+      route.push("/protected/dashboard");
     } catch (error) {
-        console.error('login failed')
+      const msg = error.response.data.message;
+      console.log(msg);
+        setErrMsg(msg);
     }
   };
-
- 
 
   return (
     <form onSubmit={handleLogin} className={styles.form} action="">
       <h1 className={styles.header}> Login Form</h1>
+      {errMsg && <p className={styles.invalid}>{errMsg}</p>}
+
       <input
         className={styles.input}
         type="text"

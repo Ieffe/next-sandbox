@@ -1,10 +1,11 @@
 import Link from "next/link";
 import LoginForm from "./components/LoginForm";
-import styles from "./form.module.css";
+import styles from "./components/form.module.css";
 import { cookies } from 'next/headers'
 import { redirect } from "next/navigation";
 
 const Page = () => {
+  console.log(cookies().get('token') ? 'Token still there' : 'none')
   return (
     <>
       <div className="mb-5">

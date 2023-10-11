@@ -10,14 +10,19 @@ Sandboxing in NextJS with Tailwind for styling
 - Axios implementation in GET, POST, PUT, DELETE methods (Still using json placeholder, thus the data doesn't update for real, but it's still confirmed by checking done by `console.log`)
 - Dynamic Routing for Single Data details and Editing Page
 - Validation with useEffect, and form Validation with `react-hook-forms` and good ol' `useEffect()`
-- Middleware implementation in `src/middleware.js` and Basic Login (provided in console.log) and setting the token in client component, but still figuring out how to handle to access that aforementioned token by getting it
+- Authentication and Middleware
+    - Middleware implementation in `src/middleware.js` 
+    - Basic Login function with `Cookies.get()` js-cookie plugin and `NextResponse()` in middleware for token checking
+    - Logout by deleting cookie
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
+- Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
 
-## Next Topic: ##
+## Next Topic: 
 - Catch all Routes `[...filename]`
 - Authentication (on Progress)
 - Redux
 - Pagination
+- Typescript
 
 **Current API Endpoint**: https://jsonplaceholder.typicode.com 
 
