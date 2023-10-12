@@ -1,5 +1,6 @@
 "use client";
 
+import { useGetProductsQuery } from "@/redux/api/productsApi";
 import {
   decrement,
   decrementByValue,
@@ -9,13 +10,13 @@ import {
   setBase,
 } from "@/redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { useEffect } from "react";
 
 const Page = () => {
   const count = useAppSelector((state) => state.counterReducer.value);
   const base = useAppSelector((state) => state.counterReducer.baseValue);
   const dispatch = useAppDispatch();
 
+  const { isLoading, isFetching, data, error } = useGetProductsQuery(null);
   return (
     <>
       <div className="mb-3">
@@ -23,10 +24,12 @@ const Page = () => {
           This page implements Redux Toolkit for State Management
         </h1>
         <p>
-          In this page, the counter below is implementing redux mechanism. Provider applied in this redux route only (provider only applied in the layout). If
-          the counter reaches zero, it can't be decremented. Applied reducers
-          are done for reset, increment and decrement, and setting value based
-          increment. Reset Button reset both the counter and the base value for value-based increment.
+          In this page, the counter below is implementing redux mechanism.
+          Provider applied in this redux route only (provider only applied in
+          the layout). If the counter reaches zero, it can't be decremented.
+          Applied reducers are done for reset, increment and decrement, and
+          setting value based increment. Reset Button reset both the counter and
+          the base value for value-based increment.
         </p>
       </div>
       <div className="mb-4">
@@ -86,6 +89,19 @@ const Page = () => {
         >
           Reset
         </button>
+      </div>
+      <hr />
+      <div>
+        {error ? (
+          <p>Error.</p>
+        ) : isLoading || isFetching ? (
+          <p>Loading ... </p>
+        ) : data ? (
+          
+          data.products.map((m)=>(
+            <p key={m.id}>{m.title}</p>
+          ))
+        ) : null}
       </div>
     </>
   );

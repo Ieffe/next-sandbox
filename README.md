@@ -16,11 +16,11 @@ Sandboxing in NextJS with Tailwind for styling
     - Logout by deleting cookie
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
-- Redux implementation for state management (only applied in route `/redux`)
+- Redux Toolkit implementation for state management (only applied in route `/redux`), for now not implementing redux for general data fetching (since most of fetching like applying dynamic routes require server-side rendering), and redux-toolkit applied in client components only
 
 ## Next Topic: 
 - Catch all Routes `[...filename]`
-- Redux (on Progress)
+- Redux for fetching data (on Progress)
 - Pagination
 - Typescript
 

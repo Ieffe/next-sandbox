@@ -6,6 +6,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'robohash.org',
                 pathname: '/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'i.dummyjson.com',
+                pathname: '/**'
             }
         ]
     }
