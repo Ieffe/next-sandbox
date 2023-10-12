@@ -11,24 +11,26 @@ const FlashMessage = () => {
   const [flashClass, setFlashClass] = useState("");
 
   useEffect(() => {
-    if (searchParams.get("form") === "deleted") {
-      setShow(true);
-      setMsg("Post Deleted");
-      setFlashClass(styles.flashRed);
-      router.replace("/posts");
-    } else if (searchParams.get("form") === "submitted") {
-      setShow(true);
-      setMsg("Post Submitted!");
-      setFlashClass(styles.flashGreen);
-      router.replace("/posts", undefined, { shallow: true });
+    switch (searchParams.get("form")) {
+      case "deleted":
+        setShow(true);
+        setMsg("Post Deleted");
+        setFlashClass(styles.flashRed);
+        router.replace("/posts");
+        break;
+      case "submitted":
+        setShow(true);
+        setMsg("Post Submitted!");
+        setFlashClass(styles.flashGreen);
+        router.replace("/posts", undefined, { shallow: true });
+        break;
     }
-
     setTimeout(() => setShow(false), 2000);
   }, [searchParams]);
 
-
   return (
-    <div className={`${flashClass} ${show ? "block" : "hidden"}`}>
+    show &&
+    <div className={`${flashClass} block`}>
       <h1>{msg}</h1>
     </div>
   );

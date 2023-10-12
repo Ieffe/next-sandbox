@@ -13,9 +13,10 @@ const DeleteConfirm = (props) => {
   
 
   return (
+    !!show &&
     <div onClick={props.close} //main container (includes the transparent background)
       className={`w-full h-full justify-center justify-items-center fixed z-10 bg-black/50 top-0 left-0 
-      ${!!show ? "flex flex-col" : "hidden"}
+      flex flex-col
     `}
     >
       <div
