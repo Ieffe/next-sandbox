@@ -13,6 +13,7 @@ const Navbar = () => {
     { id: 2, name: "Posts", url: "/posts" },
     { id: 3, name: "Add New Post", url: "/add" },
     { id: 4, name: "Protected Demo", url: "/protected" },
+    { id: 5, name: "Redux Demo", url: "/redux" },
   ];
 
   return (

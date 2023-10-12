@@ -37,7 +37,6 @@ const LoginForm = () => {
     <form onSubmit={handleLogin} className={styles.form} action="">
       <h1 className={styles.header}> Login Form</h1>
       {errMsg && <p className={styles.invalid}>{errMsg}</p>}
-
       <input
         className={styles.input}
         type="text"

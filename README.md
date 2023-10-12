@@ -16,11 +16,11 @@ Sandboxing in NextJS with Tailwind for styling
     - Logout by deleting cookie
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
+- Redux implementation for state management (only applied in route `/redux`)
 
 ## Next Topic: 
 - Catch all Routes `[...filename]`
-- Authentication (on Progress)
-- Redux
+- Redux (on Progress)
 - Pagination
 - Typescript
 
