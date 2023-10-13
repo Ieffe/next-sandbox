@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const DeleteConfirm = (props) => {
   const [show, setShow] = useState(null);

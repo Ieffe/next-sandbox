@@ -14,11 +14,12 @@ const Navbar = () => {
     { id: 3, name: "Add New Post", url: "/add" },
     { id: 4, name: "Protected Demo", url: "/protected" },
     { id: 5, name: "Redux Demo", url: "/redux" },
+    { id: 6, name: "Pagination Demo", url: "/paginated/1" },
   ];
 
   return (
     <>
-      <nav className="mx-4 sm:mx-8 md:mx-20 my-5 p-4 sticky top-0 bg-black">
+      <nav className="px-4 sm:px-8 md:px-20 my-5 p-4 sticky top-0 bg-black">
         <ul className="list-style-none flex items-center justify-between">
           <div className="flex items-center">
             <div className="inline mr-4">

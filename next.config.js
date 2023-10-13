@@ -13,7 +13,16 @@ const nextConfig = {
                 pathname: '/**'
             }
         ]
-    }
+    }, 
+    async redirects(){
+        return [
+            {
+                source: '/paginated',
+                destination: '/paginated//1',
+                permanent: true
+            }
+        ]
+    },
 }
 
 module.exports = nextConfig
