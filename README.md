@@ -17,14 +17,14 @@ Sandboxing in NextJS with Tailwind for styling
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
 - Redux Toolkit implementation for state management (only applied in route `/redux`), for now not implementing redux for general data fetching (since most of fetching like applying dynamic routes require server-side rendering), and redux-toolkit applied in client components only
+- Pagination provided by https://dummyjson.com/ with no plugin
 
 ## Next Topic: 
 - Catch all Routes `[...filename]`
-- Redux for fetching data (on Progress)
-- Pagination
+- Pagination (on Progress)
 - Typescript
 
-**Current API Endpoint**: https://jsonplaceholder.typicode.com 
+**Current API Endpoint**: https://jsonplaceholder.typicode.com & https://dummyjson.com/
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
