@@ -11,12 +11,18 @@ import {
 } from "@/redux/features/counterSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
-const Page = () => {
+const Page = ({searchParams}) => {
   const count = useAppSelector((state) => state.counterReducer.value);
   const base = useAppSelector((state) => state.counterReducer.baseValue);
   const dispatch = useAppDispatch();
 
   const { isLoading, isFetching, data, error } = useGetProductsQuery(null);
+
+  if(!Object.keys(searchParams).length){
+    console.log('No queries')
+  }
+  console.log(searchParams?.a)
+  console.log(searchParams)
   return (
     <>
       <div className="mb-3">

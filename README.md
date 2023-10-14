@@ -18,6 +18,7 @@ Sandboxing in NextJS with Tailwind for styling
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
 - Redux Toolkit implementation for state management (only applied in route `/redux`), for now not implementing redux for general data fetching (since most of fetching like applying dynamic routes require server-side rendering), and redux-toolkit applied in client components only
 - Pagination provided by https://dummyjson.com/ with no plugin
+    - Query-based paginated page in `/paginated2` route
 
 ## Next Topic: 
 - Catch all Routes `[...filename]`
