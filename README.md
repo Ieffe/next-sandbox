@@ -19,7 +19,7 @@ Sandboxing in NextJS with Tailwind for styling
 - Redux Toolkit implementation for state management (only applied in route `/redux`), for now not implementing redux for general data fetching (since most of fetching like applying dynamic routes require server-side rendering), and redux-toolkit applied in client components only
 - Pagination provided by https://dummyjson.com/ with no plugin
     - Query-based paginated page in `/paginated2` route 
-- Search by value demo in `/search` route. I made this in separate demo beacuse the current dummy backend endpoint doesn't support backend search query. Sorry for the performance issue :c
+- Search by value demo in `/search` route by using query params. I made this in separate demo beacuse the current dummy backend endpoint doesn't support backend search query. Sorry for the performance issue :c
 
 ## Next Topic: 
 - Catch all Routes `[...filename]`

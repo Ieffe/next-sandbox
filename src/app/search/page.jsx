@@ -27,6 +27,7 @@ const Page = async ({ searchParams }) => {
     <>
       <div className="mb-3">
         <h1 className="font-bold mb-3 text-xl">Searchbar Demo</h1>
+        <p> Insert value in the searchbar below, or just change the query parameter as <code className="code-snippets">/search?search={`{keyword}`}</code> then submit it. The keyword search literally by any properties provided by the products object. </p>
       </div>
       <div>
         <SearchBar></SearchBar>
