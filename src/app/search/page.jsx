@@ -1,38 +1,39 @@
 import axios from "axios";
 import { Suspense } from "react";
 import Image from "next/image";
-import Pagination from "./components/Pagination";
-import ContentsPerPageSelector from "./components/ContentsPerPageSelector";
+import SearchBar from "./components/searchBar";
 
 const Page = async ({ searchParams }) => {
-  const [contents, page] = [searchParams?.contents, searchParams?.page];
-  let [limit, skip] = [100, 0];
-
-  if (Object.keys(searchParams).length) {
-    limit = searchParams?.contents;
-    skip = (searchParams?.page - 1) * searchParams.contents;
-  }
-
   const api = await axios.get(
-    `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
-    //fetch everything at once
+    `https://dummyjson.com/products?limit=100`
+    //fetch everything at once, since current api doesnt support back end serach params
+    //sorry for the performance issue :(
   );
   const datas = api.data.products;
+
+
+
+  const keyword = searchParams?.search
+  const searchPattern = new RegExp(keyword, 'i'); 
+  // Make new regex value based on current searchparams
+
+  // Use Array.filter() for returning specific value for client
+  const results = datas.filter((item) => {
+    // Convert the object's values to an array and use some() to check if any property matches the regex
+    return Object.values(item).some((value) => searchPattern.test(value));
+  });
+
   return (
     <>
       <div className="mb-3">
-        <h1 className="font-bold mb-3 text-xl">Query-based pagination</h1>
-        <p>Try to change the url params into <span className="code-snippets">paginated2?contents={`{value}`}1</span> or just pick number of contents per page selector below.</p>
+        <h1 className="font-bold mb-3 text-xl">Searchbar Demo</h1>
       </div>
-
-      <div className="flex flex-row mb-3 items-center">
-        <p className="mr-2">Contents per Page</p>
-        <ContentsPerPageSelector></ContentsPerPageSelector>
+      <div>
+        <SearchBar></SearchBar>
       </div>
-
       <Suspense>
         <div className=" justify-center self-center grid  grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 grid-flow-row-dense border-white gap-3">
-          {datas.map((data) => (
+          {results.map((data) => (
             <div
               className="border-2 rounded-md border-white flex flex-col px-3 items-center"
               key={data.id}
@@ -59,17 +60,6 @@ const Page = async ({ searchParams }) => {
           ))}
         </div>
       </Suspense>
-      {!contents && !page ? (
-        ""
-      ) : (
-        <Pagination
-          datasAmount={100}
-          contentsPerPage={contents}
-          params={"paginated2"}
-          currentPage={page}
-          lastPage={Math.ceil(100 / contents)}
-        />
-      )}
     </>
   );
 };

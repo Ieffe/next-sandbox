@@ -15,6 +15,7 @@ const Navbar = () => {
     { id: 4, name: "Protected Demo", url: "/protected" },
     { id: 5, name: "Redux Demo", url: "/redux" },
     { id: 6, name: "Pagination Demo", url: "/paginated/1" },
+    { id: 7, name: "Query-based Pagination", url: "/paginated2" },
   ];
 
   return (
