@@ -20,6 +20,7 @@ const Page = async ({params}) =>{
          title={data.title}
          desc={data.description}
          price={data.price}
+         id={data.id}
          />
         </>
     )

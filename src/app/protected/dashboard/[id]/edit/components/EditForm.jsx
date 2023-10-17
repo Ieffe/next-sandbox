@@ -12,7 +12,7 @@ const EditForm = (props) => {
   const [form, setForm] = useState({
     title: props.title,
     description: props.desc,
-    image: "",
+    thumbnail: "",
     price: props.price,
   });
 
@@ -20,7 +20,7 @@ const EditForm = (props) => {
     e.preventDefault();
     try {
       const resp = await axios.patch(
-        "https://dummyjson.com/auth/products/add",
+        `https://dummyjson.com/products/${props.id}`,
         form,
         {
           headers: {
@@ -84,8 +84,8 @@ const EditForm = (props) => {
           className="input"
           type="file"
           accept=".jpg,.png,.gif"
-          value={form.image}
-          name="image"
+          value={form.thumbnail}
+          name="thumbnail"
           onChange={handleInputChange}
         />
       </div>
