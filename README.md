@@ -14,6 +14,7 @@ Sandboxing in NextJS with Tailwind for styling
     - Middleware implementation in `src/middleware.js` 
     - Basic Login function with `Cookies.get()` js-cookie plugin and `NextResponse()` in middleware for token checking
     - Logout by deleting cookie
+    - Authenticated Fetching by using Bearer Token acquired from the token cookies in `/protected/dashboard`
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
 - Redux Toolkit implementation for state management (only applied in route `/redux`), for now not implementing redux for general data fetching (since most of fetching like applying dynamic routes require server-side rendering), and redux-toolkit applied in client components only

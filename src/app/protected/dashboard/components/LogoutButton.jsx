@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 const LogoutButton = () => {
     const router = useRouter()
   const logout = () => {
-    console.log(getCookie('token'))
     deleteCookie('token')
     console.log('cookie deleted')
+    router.refresh()
     router.push('/protected')
     console.log(getCookie('token') ? getCookie('token')  : 'No more cookie')
 
@@ -15,7 +15,7 @@ const LogoutButton = () => {
   return (
     <button
       onClick={logout}
-      className="bg-black border-2 border-white px-3 py-2 rounded-lg"
+      className="button-red"
     >
       Logout
     </button>

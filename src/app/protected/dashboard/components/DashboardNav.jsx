@@ -13,6 +13,7 @@ const DashboardNav = (props) => {
           height={50}
           width={50}
           className="border-2 border-white rounded-full"
+          alt="profile-picture"
         />
         <span className={styles.userHeader}>{props.name}</span>
       </div>

@@ -6,6 +6,9 @@ import { redirect } from "next/navigation";
 
 const Page = () => {
   console.log(cookies().get('token') ? 'Token still there' : 'none')
+  if(cookies().has('token')){
+    redirect('/protected/dashboard')
+  }
   return (
     <>
       <div className="mb-5">

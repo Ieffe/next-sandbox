@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import styles from "./form.module.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { setCookie, getCookie } from "cookies-next";
+import { setCookie } from "cookies-next";
 // import Cookies from 'js-cookie';
 
 const LoginForm = () => {
@@ -24,7 +24,7 @@ const LoginForm = () => {
         password: password,
       });
       setCookie("token", resp.data);
-      route.replace("/protected/dashboard");
+      route.push("/protected/dashboard");
       route.refresh()
     } catch (error) {
       const msg = error.response.data.message;

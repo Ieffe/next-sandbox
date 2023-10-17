@@ -18,7 +18,7 @@ const PostWrapper = (props) => {
         .then((resp) => console.log(resp));
       handleClose();
       console.log("Post deleted succesfully!");
-      router.push('/posts?form=deleted');;
+      router.push('/posts?form=deleted');
     } catch (error) {
       (error) => console.log(error);
     }
