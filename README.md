@@ -12,8 +12,8 @@ Sandboxing in NextJS with Tailwind for styling
 - Validation with useEffect, and form Validation with `react-hook-forms` and good ol' `useEffect()`
 - Authentication and Middleware
     - Middleware implementation in `src/middleware.js` 
-    - Basic Login function with `Cookies.get()` js-cookie plugin and `NextResponse()` in middleware for token checking
-    - Logout by deleting cookie
+    - Basic Login function with `setCookies` cookies-next plugin and using `getCookies` and `NextResponse()` in middleware for token checking
+    - Logout by deleting cookie (not logged out automatically for now)
     - Authenticated Fetching by using Bearer Token acquired from the token cookies in `/protected/dashboard`
 - Flash Message using query in `route.push()` (and then the route is cleared with `route.replace()`) in `/posts` route after deleting or adding new data
 - Scoped CSS by using `.module.css` file and applying tailwind class with `@apply`
@@ -25,7 +25,7 @@ Sandboxing in NextJS with Tailwind for styling
 ## Next Topic: 
 - Catch all Routes `[...filename]`
 - Typescript
-- Paralel Route
+- Paralel Route `@folder`, and route groups `(folder)` 
 
 **Current API Endpoint**: https://jsonplaceholder.typicode.com & https://dummyjson.com/
 

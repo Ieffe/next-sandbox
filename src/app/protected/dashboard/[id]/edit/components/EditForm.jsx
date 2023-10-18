@@ -19,7 +19,7 @@ const EditForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.patch(
+      const resp = await axios.patch( //PATCH for updating
         `https://dummyjson.com/products/${props.id}`,
         form,
         {
@@ -42,6 +42,7 @@ const EditForm = (props) => {
       ...form,
       [name]: value,
     });
+    // console.log(form)
   };
 
   return (
@@ -69,7 +70,7 @@ const EditForm = (props) => {
       <div className="mb-3">
         <textarea
           placeholder="Insert a small description"
-          className="input"
+          className="input resize-none"
           name="description"
           id=""
           cols="50"

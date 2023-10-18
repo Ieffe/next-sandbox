@@ -20,6 +20,7 @@ const Page = async () => {
       <DashboardNav
         name={token.firstName + " " + token.lastName}
         img={token.image}
+        link={'/protected/dashboard/account'}
       />
       <div className="mt-3 w-full">
         {posts.map((post) => (

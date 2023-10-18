@@ -1,8 +1,9 @@
-'use client'
+"use client";
 import Image from "next/image";
 import styles from "./dashNav.module.css";
 import LogoutButton from "./LogoutButton";
 import { useState } from "react";
+import Link from "next/link";
 
 const DashboardNav = (props) => {
   return (
@@ -15,7 +16,9 @@ const DashboardNav = (props) => {
           className="border-2 border-white rounded-full"
           alt="profile-picture"
         />
-        <span className={styles.userHeader}>{props.name}</span>
+        <Link href={props.link}>
+          <span className={styles.userHeader}>{props.name}</span>
+        </Link>
       </div>
       <div className="flex flex-row items-center">
         <LogoutButton></LogoutButton>
